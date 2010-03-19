@@ -1,0 +1,6 @@
+
+
+*) Running the unit tests
+
+To make the unit tests pass you need to have an instance of MSSQL running. 
+You might need to adjust the sql connectionstring in Pons.Tests.Integration/App.config
