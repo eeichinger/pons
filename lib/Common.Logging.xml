@@ -1,0 +1,1003 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Common.Logging</name>
+    </assembly>
+    <members>
+        <member name="T:Common.Logging.Simple.ConsoleOutLogger">
+            <summary>
+            Sends log messages to <see cref="P:System.Console.Out"/>.
+            </summary>
+            <author>Gilles Bayon</author>
+            <version>$Id: ConsoleOutLogger.cs,v 1.1 2006/11/13 07:17:55 markpollack Exp $</version>
+        </member>
+        <member name="T:Common.Logging.ILog">
+            <summary>
+            A simple logging interface abstracting logging APIs. 
+            </summary>
+        </member>
+        <member name="M:Common.Logging.ILog.Trace(System.Object)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Trace"/> level.
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Common.Logging.ILog.Trace(System.Object,System.Exception)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Trace"/> level including
+            the stack trace of the <see cref="T:System.Exception"/> passed
+            as a parameter.
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="M:Common.Logging.ILog.Debug(System.Object)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Debug"/> level.
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Common.Logging.ILog.Debug(System.Object,System.Exception)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Debug"/> level including
+            the stack trace of the <see cref="T:System.Exception"/> passed
+            as a parameter.
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="M:Common.Logging.ILog.Error(System.Object)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Error"/> level.
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Common.Logging.ILog.Error(System.Object,System.Exception)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Error"/> level including
+            the stack trace of the <see cref="T:System.Exception"/> passed
+            as a parameter.
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="M:Common.Logging.ILog.Fatal(System.Object)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Fatal"/> level.
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Common.Logging.ILog.Fatal(System.Object,System.Exception)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Fatal"/> level including
+            the stack trace of the <see cref="T:System.Exception"/> passed
+            as a parameter.
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="M:Common.Logging.ILog.Info(System.Object)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Info"/> level.
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Common.Logging.ILog.Info(System.Object,System.Exception)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Info"/> level including
+            the stack trace of the <see cref="T:System.Exception"/> passed
+            as a parameter.
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="M:Common.Logging.ILog.Warn(System.Object)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Warn"/> level.
+            </summary>
+            <param name="message">The message object to log.</param>
+        </member>
+        <member name="M:Common.Logging.ILog.Warn(System.Object,System.Exception)">
+            <summary>
+            Log a message object with the <see cref="F:Common.Logging.LogLevel.Warn"/> level including
+            the stack trace of the <see cref="T:System.Exception"/> passed
+            as a parameter.
+            </summary>
+            <param name="message">The message object to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="P:Common.Logging.ILog.IsTraceEnabled">
+            <summary>
+            Checks if this logger is enabled for the <see cref="F:Common.Logging.LogLevel.Trace"/> level.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.ILog.IsDebugEnabled">
+            <summary>
+            Checks if this logger is enabled for the <see cref="F:Common.Logging.LogLevel.Debug"/> level.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.ILog.IsErrorEnabled">
+            <summary>
+            Checks if this logger is enabled for the <see cref="F:Common.Logging.LogLevel.Error"/> level.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.ILog.IsFatalEnabled">
+            <summary>
+            Checks if this logger is enabled for the <see cref="F:Common.Logging.LogLevel.Fatal"/> level.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.ILog.IsInfoEnabled">
+            <summary>
+            Checks if this logger is enabled for the <see cref="F:Common.Logging.LogLevel.Info"/> level.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.ILog.IsWarnEnabled">
+            <summary>
+            Checks if this logger is enabled for the <see cref="F:Common.Logging.LogLevel.Warn"/> level.
+            </summary>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.#ctor(System.String,Common.Logging.LogLevel,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Creates and initializes a logger that writes messages to <see cref="P:System.Console.Out"/>.
+            </summary>
+            <param name="logName">The name, usually type name of the calling class, of the logger.</param>
+            <param name="logLevel">The current logging threshold. Messages recieved that are beneath this threshold will not be logged.</param>
+            <param name="showDateTime">Include the current time in the log message.</param>
+            <param name="showLogName">Include the instance name in the log message.</param>
+            <param name="dateTimeFormat">The date and time format to use in the log message.</param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Write(Common.Logging.LogLevel,System.Object,System.Exception)">
+            <summary>
+            Do the actual logging by constructing the log message using a <see cref="T:System.Text.StringBuilder"/> then
+            sending the output to <see cref="P:System.Console.Out"/>.
+            </summary>
+            <param name="level">The <see cref="T:Common.Logging.LogLevel"/> of the message.</param>
+            <param name="message">The log message.</param>
+            <param name="e">An optional <see cref="T:System.Exception"/> associated with the message.</param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.IsLevelEnabled(Common.Logging.LogLevel)">
+            <summary>
+            Determines if the given log level is currently enabled.
+            </summary>
+            <param name="level"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Trace(System.Object)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Trace"/> message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Trace(System.Object,System.Exception)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Trace"/> message with an optional <see cref="T:System.Exception"/>.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="e">
+            The	<see cref="T:System.Exception"/> associated with the message. If there isn't any
+            <see cref="T:System.Exception"/> associated with the message, pass <see langword="null"/>.
+            </param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Debug(System.Object)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Debug"/> message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Debug(System.Object,System.Exception)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Debug"/> message with an optional <see cref="T:System.Exception"/>.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="e">
+            The	<see cref="T:System.Exception"/> associated with the message. If there isn't any
+            <see cref="T:System.Exception"/> associated with the message, pass <see langword="null"/>.
+            </param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Error(System.Object)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Error"/> message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Error(System.Object,System.Exception)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Error"/> message with an optional <see cref="T:System.Exception"/>.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="e">
+            The	<see cref="T:System.Exception"/> associated with the message. If there isn't any
+            <see cref="T:System.Exception"/> associated with the message, pass <see langword="null"/>.
+            </param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Fatal(System.Object)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Fatal"/> message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Fatal(System.Object,System.Exception)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Fatal"/> message with an optional <see cref="T:System.Exception"/>.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="e">
+            The	<see cref="T:System.Exception"/> associated with the message. If there isn't any
+            <see cref="T:System.Exception"/> associated with the message, pass <see langword="null"/>.
+            </param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Info(System.Object)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Info"/> message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Info(System.Object,System.Exception)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Info"/> message with an optional <see cref="T:System.Exception"/>.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="e">
+            The	<see cref="T:System.Exception"/> associated with the message. If there isn't any
+            <see cref="T:System.Exception"/> associated with the message, pass <see langword="null"/>.
+            </param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Warn(System.Object)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Warn"/> message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLogger.Warn(System.Object,System.Exception)">
+            <summary>
+            Log a <see cref="F:Common.Logging.LogLevel.Warn"/> message with an optional <see cref="T:System.Exception"/>.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="e">
+            The	<see cref="T:System.Exception"/> associated with the message. If there isn't any
+            <see cref="T:System.Exception"/> associated with the message, pass <see langword="null"/>.
+            </param>
+        </member>
+        <member name="P:Common.Logging.Simple.ConsoleOutLogger.IsTraceEnabled">
+            <summary>
+            Returns <see langword="true"/> if the current <see cref="T:Common.Logging.LogLevel"/> is greater than or
+            equal to <see cref="F:Common.Logging.LogLevel.Trace"/>. If it is, all messages will be sent to <see cref="P:System.Console.Out"/>.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.ConsoleOutLogger.IsDebugEnabled">
+            <summary>
+            Returns <see langword="true"/> if the current <see cref="T:Common.Logging.LogLevel"/> is greater than or
+            equal to <see cref="F:Common.Logging.LogLevel.Debug"/>. If it is, all messages will be sent to <see cref="P:System.Console.Out"/>.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.ConsoleOutLogger.IsErrorEnabled">
+            <summary>
+            Returns <see langword="true"/> if the current <see cref="T:Common.Logging.LogLevel"/> is greater than or
+            equal to <see cref="F:Common.Logging.LogLevel.Error"/>. If it is, only messages with a <see cref="T:Common.Logging.LogLevel"/> of
+            <see cref="F:Common.Logging.LogLevel.Error"/> and <see cref="F:Common.Logging.LogLevel.Fatal"/> will be sent to <see cref="P:System.Console.Out"/>.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.ConsoleOutLogger.IsFatalEnabled">
+            <summary>
+            Returns <see langword="true"/> if the current <see cref="T:Common.Logging.LogLevel"/> is greater than or
+            equal to <see cref="F:Common.Logging.LogLevel.Fatal"/>. If it is, only messages with a <see cref="T:Common.Logging.LogLevel"/> of
+            <see cref="F:Common.Logging.LogLevel.Fatal"/> will be sent to <see cref="P:System.Console.Out"/>.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.ConsoleOutLogger.IsInfoEnabled">
+            <summary>
+            Returns <see langword="true"/> if the current <see cref="T:Common.Logging.LogLevel"/> is greater than or
+            equal to <see cref="F:Common.Logging.LogLevel.Info"/>. If it is, only messages with a <see cref="T:Common.Logging.LogLevel"/> of
+            <see cref="F:Common.Logging.LogLevel.Info"/>, <see cref="F:Common.Logging.LogLevel.Warn"/>, <see cref="F:Common.Logging.LogLevel.Error"/>, and 
+            <see cref="F:Common.Logging.LogLevel.Fatal"/> will be sent to <see cref="P:System.Console.Out"/>.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.ConsoleOutLogger.IsWarnEnabled">
+            <summary>
+            Returns <see langword="true"/> if the current <see cref="T:Common.Logging.LogLevel"/> is greater than or
+            equal to <see cref="F:Common.Logging.LogLevel.Warn"/>. If it is, only messages with a <see cref="T:Common.Logging.LogLevel"/> of
+            <see cref="F:Common.Logging.LogLevel.Warn"/>, <see cref="F:Common.Logging.LogLevel.Error"/>, and <see cref="F:Common.Logging.LogLevel.Fatal"/> 
+            will be sent to <see cref="P:System.Console.Out"/>.
+            </summary>
+        </member>
+        <member name="T:Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter">
+            <summary>
+            Factory for creating <see cref="T:Common.Logging.ILog"/> instances that write data to <see cref="P:System.Console.Out"/>.
+            </summary>
+            <remarks>Default settings are LogLevel.All, showDateTime = true, showLogName = true, and no DateTimeFormat.
+            The keys in the NameValueCollection to configure this adapters are the following
+            <list type="bullet">
+                <item>level</item>
+                <item>showDateTime</item>
+                <item>showLogName</item>
+                <item>dateTimeFormat</item>
+            </list>
+            </remarks>
+            <author>Gilles Bayon</author>
+            <author>Mark Pollack</author>
+            <version>$Id: ConsoleOutLoggerFactoryAdapter.cs,v 1.2 2006/12/04 22:11:50 oakinger Exp $</version>
+        </member>
+        <member name="T:Common.Logging.ILoggerFactoryAdapter">
+            <summary>
+            LoggerFactoryAdapter interface is used internally by LogManager
+            Only developers wishing to write new Common.Logging adapters need to
+            worry about this interface.
+            </summary>
+            <author>Gilles Bayon</author>
+            <version>$Id: ILoggerFactoryAdapter.cs,v 1.1 2006/11/13 07:17:55 markpollack Exp $</version>
+        </member>
+        <member name="M:Common.Logging.ILoggerFactoryAdapter.GetLogger(System.Type)">
+            <summary>
+            Get a ILog instance by type.
+            </summary>
+            <param name="type">The type to use for the logger</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Logging.ILoggerFactoryAdapter.GetLogger(System.String)">
+            <summary>
+            Get a ILog instance by name.
+            </summary>
+            <param name="name">The name of the logger</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter"/> class using default 
+            settings.
+            </summary>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter.#ctor(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter"/> class.
+            </summary>
+            <remarks>
+            Looks for level, showDateTime, showLogName, dateTimeFormat items from 
+            <paramref name="properties"/> for use when the GetLogger methods are called.
+            <see cref="T:Common.Logging.ConfigurationSectionHandler"/> for more information on how to use the 
+            standard .NET application configuraiton file (App.config/Web.config) 
+            to configure this adapter.
+            </remarks>
+            <param name="properties">The name value collection, typically specified by the user in 
+            a configuration section named common/logging.</param>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter.GetLogger(System.Type)">
+            <summary>
+            Get a ILog instance by <see cref="T:System.Type"/>.
+            </summary>
+            <param name="type">Usually the <see cref="T:System.Type"/> of the current class.</param>
+            <returns>An ILog instance that will write data to <see cref="P:System.Console.Out"/>.</returns>
+        </member>
+        <member name="M:Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter.GetLogger(System.String)">
+            <summary>
+            Get a ILog instance by name.
+            </summary>
+            <param name="name">Usually a <see cref="T:System.Type"/>'s Name or FullName property.</param>
+            <returns>An ILog instance that will write data to <see cref="P:System.Console.Out"/>.</returns>
+        </member>
+        <member name="T:Common.Logging.Simple.NoOpLogger">
+            <summary>
+            Silently ignores all log messages.
+            </summary>
+            <author>Gilles Bayon</author>
+            <version>$Id: NoOpLogger.cs,v 1.1 2006/11/13 07:17:55 markpollack Exp $</version>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Trace(System.Object)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Trace(System.Object,System.Exception)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Debug(System.Object)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Debug(System.Object,System.Exception)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Error(System.Object)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Error(System.Object,System.Exception)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Fatal(System.Object)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Fatal(System.Object,System.Exception)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Info(System.Object)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Info(System.Object,System.Exception)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Warn(System.Object)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLogger.Warn(System.Object,System.Exception)">
+            <summary>
+            Ignores message.
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:Common.Logging.Simple.NoOpLogger.IsTraceEnabled">
+            <summary>
+            Always returns <see langword="false" />.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.NoOpLogger.IsDebugEnabled">
+            <summary>
+            Always returns <see langword="false" />.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.NoOpLogger.IsErrorEnabled">
+            <summary>
+            Always returns <see langword="false" />.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.NoOpLogger.IsFatalEnabled">
+            <summary>
+            Always returns <see langword="false" />.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.NoOpLogger.IsInfoEnabled">
+            <summary>
+            Always returns <see langword="false" />.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.NoOpLogger.IsWarnEnabled">
+            <summary>
+            Always returns <see langword="false" />.
+            </summary>
+        </member>
+        <member name="T:Common.Logging.Simple.NoOpLoggerFactoryAdapter">
+            <summary>
+            Factory for creating <see cref="T:Common.Logging.ILog"/> instances that silently ignores
+            logging requests.
+            </summary>
+            <author>Gilles Bayon</author>
+            <version>$Id: NoOpLoggerFactoryAdapter.cs,v 1.1 2006/11/13 07:17:55 markpollack Exp $</version>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLoggerFactoryAdapter.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLoggerFactoryAdapter.#ctor(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLoggerFactoryAdapter.GetLogger(System.Type)">
+            <summary>
+            Get a ILog instance by type 
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Logging.Simple.NoOpLoggerFactoryAdapter.Common#Logging#ILoggerFactoryAdapter#GetLogger(System.String)">
+            <summary>
+            Get a ILog instance by type name 
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Common.Logging.Simple.TraceLogger">
+            <summary>
+            Logger sending everything to the trace output stream.
+            </summary>
+            <author>Gilles Bayon</author>
+            <version>$Id: TraceLogger.cs,v 1.1 2006/11/13 07:17:55 markpollack Exp $</version>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.#ctor(System.String,Common.Logging.LogLevel,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="logName"></param>
+            <param name="logLevel"></param>
+            <param name="showDateTime">Include the current time in the log message </param>
+            <param name="showLogName">Include the instance name in the log message</param>
+            <param name="dateTimeFormat">The date and time format to use in the log message </param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Write(Common.Logging.LogLevel,System.Object,System.Exception)">
+            <summary>
+            Do the actual logging.
+            This method assembles the message and write
+            the content of the message accumulated in the specified
+            StringBuffer to the appropriate output destination. The
+            default implementation writes to System.Console.Error.<p/>
+            </summary>
+            <param name="level"></param>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.IsLevelEnabled(Common.Logging.LogLevel)">
+            <summary>
+            Is the given log level currently enabled ?
+            </summary>
+            <param name="level"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Trace(System.Object)">
+            <summary>
+            Log a trace level message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Trace(System.Object,System.Exception)">
+            <summary>
+            log a trace level message
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Debug(System.Object)">
+            <summary>
+            Log a debug message.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Debug(System.Object,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Error(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Error(System.Object,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Fatal(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Fatal(System.Object,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Info(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Info(System.Object,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Warn(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLogger.Warn(System.Object,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:Common.Logging.Simple.TraceLogger.IsTraceEnabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.TraceLogger.IsDebugEnabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.TraceLogger.IsErrorEnabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.TraceLogger.IsFatalEnabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.TraceLogger.IsInfoEnabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Common.Logging.Simple.TraceLogger.IsWarnEnabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Common.Logging.Simple.TraceLoggerFactoryAdapter">
+            <summary>
+            Factory for creating <see cref="T:Common.Logging.ILog"/> instances that send 
+            everything to the system.Diagnostics.Trace output stream.
+            </summary>
+            <remarks>Default settings are LogLevel.All, showDateTime = true, showLogName = true, and no DateTimeFormat.
+            The keys in the NameValueCollection to configure this adapters are the following
+            <list type="bullet">
+                <item>level</item>
+                <item>showDateTime</item>
+                <item>showLogName</item>
+                <item>dateTimeFormat</item>
+            </list>
+            </remarks>
+            <author>Gilles Bayon</author>
+            <author>Mark Pollack</author>
+            <version>$Id: TraceLoggerFactoryAdapter.cs,v 1.2 2006/12/04 22:11:51 oakinger Exp $</version>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLoggerFactoryAdapter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Common.Logging.Simple.TraceLoggerFactoryAdapter"/> class using default settings.
+            </summary>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLoggerFactoryAdapter.#ctor(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Common.Logging.Simple.TraceLoggerFactoryAdapter"/> class.
+            </summary>
+            <remarks>
+            Looks for level, showDateTime, showLogName, dateTimeFormat items from 
+            <paramref name="properties"/> for use when the GetLogger methods are called.
+            <see cref="T:Common.Logging.ConfigurationSectionHandler"/> for more information on how to use the 
+            standard .NET application configuraiton file (App.config/Web.config) 
+            to configure this adapter.
+            </remarks>
+            <param name="properties">The name value collection, typically specified by the user in 
+            a configuration section named common/logging.</param>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLoggerFactoryAdapter.GetLogger(System.Type)">
+            <summary>
+            Get a ILog instance by type 
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Logging.Simple.TraceLoggerFactoryAdapter.GetLogger(System.String)">
+            <summary>
+            Get a ILog instance by type name 
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Common.Logging.ConfigurationException">
+            <summary>
+            The exception that is thrown when a configuration system error has occurred with Common.Logging
+            </summary>
+            <author>Mark Pollack</author>
+            <version>$Id:$</version>
+        </member>
+        <member name="M:Common.Logging.ConfigurationException.#ctor">
+            <summary>Creates a new instance of the ObjectsException class.</summary>
+        </member>
+        <member name="M:Common.Logging.ConfigurationException.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the ConfigurationException class. with the specified message.
+            </summary>
+            <param name="message">
+            A message about the exception.
+            </param>
+        </member>
+        <member name="M:Common.Logging.ConfigurationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new instance of the ConfigurationException class with the specified message
+            and root cause.
+            </summary>
+            <param name="message">
+            A message about the exception.
+            </param>
+            <param name="rootCause">
+            The root exception that is being wrapped.
+            </param>
+        </member>
+        <member name="M:Common.Logging.ConfigurationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a new instance of the ConfigurationException class.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/>
+            that holds the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/>
+            that contains contextual information about the source or destination.
+            </param>
+        </member>
+        <member name="T:Common.Logging.ConfigurationReader">
+            <summary>
+            Implementation of <see cref="T:Common.Logging.IConfigurationReader"/> that uses the standard .NET 
+            configuration APIs, ConfigurationSettings in 1.x and ConfigurationManager in 2.0
+            </summary>
+            <author>Mark Pollack</author>
+            <version>$Id:$</version>
+        </member>
+        <member name="T:Common.Logging.IConfigurationReader">
+            <summary>
+            Interface for basic operations to read .NET application configuration information.
+            </summary>
+            <remarks>Provides a simple abstraction to handle BCL API differences between .NET 1.x and 2.0. Also
+            useful for testing scenarios.</remarks>
+            <author>Mark Pollack</author>
+            <version>$Id:$</version>
+        </member>
+        <member name="M:Common.Logging.IConfigurationReader.GetSection(System.String)">
+            <summary>
+            Parses the configuration section and returns the resulting object.
+            </summary>
+            <remarks>
+            <p>
+            Primary purpose of this method is to allow us to parse and 
+            load configuration sections using the same API regardless
+            of the .NET framework version.
+            </p>
+            </remarks>
+            <param name="sectionName">Name of the configuration section.</param>
+            <returns>Object created by a corresponding <see cref="T:System.Configuration.IConfigurationSectionHandler"/>.</returns>
+            <see cref="T:Common.Logging.ConfigurationSectionHandler"/>
+        </member>
+        <member name="M:Common.Logging.ConfigurationReader.GetSection(System.String)">
+            <summary>
+            Parses the configuration section and returns the resulting object.
+            </summary>
+            <param name="sectionName">Name of the configuration section.</param>
+            <returns>
+            Object created by a corresponding <see cref="T:System.Configuration.IConfigurationSectionHandler"/>.
+            </returns>
+            <remarks>
+            	<p>
+            Primary purpose of this method is to allow us to parse and
+            load configuration sections using the same API regardless
+            of the .NET framework version.
+            </p>
+            </remarks>
+            <see cref="T:Common.Logging.ConfigurationSectionHandler"/>
+        </member>
+        <member name="T:Common.Logging.ConfigurationSectionHandler">
+            <summary>
+            Used in an application's configuration file (App.Config or Web.Config) to configure the logging subsystem.
+            </summary>
+            <remarks>
+            <example>
+            An example configuration section that writes log messages to the Console using the built-in Console Logger.
+            <code lang="XML" escaped="true">
+            <configuration>
+            	<configSections>
+            		<sectionGroup name="common">
+            			<section name="logging" type="Common.Logging.ConfigurationSectionHandler, Common.Logging" />
+            		</sectionGroup>	
+            	</configSections>
+            	<common>
+            		<logging>
+            			<factoryAdapter type="Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter, Common.Logging">
+            				<arg key="showLogName" value="true" />
+            				<arg key="showDataTime" value="true" />
+            				<arg key="level" value="ALL" />
+            				<arg key="dateTimeFormat" value="yyyy/MM/dd HH:mm:ss:fff" />
+            			</factoryAdapter>
+            		</logging>
+            	</common>
+            </configuration>
+            </code> 
+            </example>
+            </remarks>
+            <author>Gilles Bayon</author>
+            <version>$Id: ConfigurationSectionHandler.cs,v 1.1 2006/11/13 07:17:55 markpollack Exp $</version>
+        </member>
+        <member name="M:Common.Logging.ConfigurationSectionHandler.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Common.Logging.ConfigurationSectionHandler.ReadConfiguration(System.Xml.XmlNode)">
+            <summary>
+            Retrieves the <see cref="T:System.Type"/> of the logger the use by looking at the logFactoryAdapter element
+            of the logging configuration element.
+            </summary>
+            <param name="section"></param>
+            <returns>
+            A <see cref="T:Common.Logging.LogSetting"/> object containing the specified type that implements 
+            <see cref="T:Common.Logging.ILoggerFactoryAdapter"/> along with zero or more properties that will be 
+            passed to the logger factory adapter's constructor as an <see cref="T:System.Collections.IDictionary"/>.
+            </returns>
+        </member>
+        <member name="M:Common.Logging.ConfigurationSectionHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            Verifies that the logFactoryAdapter element appears once in the configuration section.
+            </summary>
+            <param name="parent">The parent of the current item.</param>
+            <param name="configContext">Additional information about the configuration process.</param>
+            <param name="section">The configuration section to apply an XPath query too.</param>
+            <returns>
+            A <see cref="T:Common.Logging.LogSetting"/> object containing the specified logFactoryAdapter type
+            along with user supplied configuration properties.
+            </returns>
+        </member>
+        <member name="T:Common.Logging.LogLevel">
+            <summary>
+            The 7 logging levels used by Log are (in order): 
+            </summary>
+            <author>Gilles Bayon</author>
+            <version>$Id: ILog.cs,v 1.1 2006/11/13 07:17:55 markpollack Exp $</version>
+        </member>
+        <member name="F:Common.Logging.LogLevel.All">
+            <summary>
+            All logging levels
+            </summary>
+        </member>
+        <member name="F:Common.Logging.LogLevel.Trace">
+            <summary>
+            A trace logging level
+            </summary>
+        </member>
+        <member name="F:Common.Logging.LogLevel.Debug">
+            <summary>
+            A debug logging level
+            </summary>
+        </member>
+        <member name="F:Common.Logging.LogLevel.Info">
+            <summary>
+            A info logging level
+            </summary>
+        </member>
+        <member name="F:Common.Logging.LogLevel.Warn">
+            <summary>
+            A warn logging level
+            </summary>
+        </member>
+        <member name="F:Common.Logging.LogLevel.Error">
+            <summary>
+            An error logging level
+            </summary>
+        </member>
+        <member name="F:Common.Logging.LogLevel.Fatal">
+            <summary>
+            A fatal logging level
+            </summary>
+        </member>
+        <member name="F:Common.Logging.LogLevel.Off">
+            <summary>
+            Do not log anything.
+            </summary>
+        </member>
+        <member name="T:Common.Logging.LogManager">
+            <summary>
+            The LogManager can produce ILogFactory for various logging APIs,
+            most notably for log4net. 
+            Other implemenations such as
+            * SimpleLogger
+            * NoOpLogger are also supported.
+            </summary>
+            <author>Gilles Bayon</author>
+            <version>$Id: LogManager.cs,v 1.1 2006/11/13 07:17:55 markpollack Exp $</version>
+        </member>
+        <member name="M:Common.Logging.LogManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Common.Logging.LogManager"/> class. 
+            </summary>
+            <remarks>
+            Uses a private access modifier to prevent instantiation of this class.
+            </remarks>
+        </member>
+        <member name="M:Common.Logging.LogManager.GetLogger(System.Type)">
+            <summary>
+            Gets the logger.
+            </summary>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Logging.LogManager.GetLogger(System.String)">
+            <summary>
+            Gets the logger.
+            </summary>
+            <param name="name">The name.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Common.Logging.LogManager.BuildLoggerFactoryAdapter">
+            <summary>
+            Builds the logger factory adapter.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Common.Logging.LogManager.Adapter">
+            <summary>
+            Gets or sets the adapter.
+            </summary>
+            <value>The adapter.</value>
+        </member>
+        <member name="P:Common.Logging.LogManager.ConfigurationReader">
+            <summary>
+            Gets or sets the configuration reader.
+            </summary>
+            <remarks>Primarily used for testing purposes but maybe useful to obtain configuration
+            information from some place other than the .NET application configuration file.</remarks>
+            <value>The configuration reader.</value>
+        </member>
+        <member name="T:Common.Logging.LogSetting">
+            <summary>
+            Container used to hold configuration information from config file.
+            </summary>
+            <author>Gilles Bayon</author>
+            <version>$Id: LogSetting.cs,v 1.1 2006/11/13 07:17:55 markpollack Exp $</version>
+        </member>
+        <member name="M:Common.Logging.LogSetting.#ctor(System.Type,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            
+            </summary>
+            <param name="factoryAdapterType">
+            The <see cref="T:Common.Logging.ILoggerFactoryAdapter"/> type 
+            that will be used for creating <see cref="T:Common.Logging.ILog"/>
+            </param>
+            <param name="properties">
+            Additional user supplied properties that are passed to the 
+            <paramref name="factoryAdapterType"/>'s constructor.
+            </param>
+        </member>
+        <member name="P:Common.Logging.LogSetting.FactoryAdapterType">
+            <summary>
+            The <see cref="T:Common.Logging.ILoggerFactoryAdapter"/> type that will be used for creating <see cref="T:Common.Logging.ILog"/>
+            instances.
+            </summary>
+        </member>
+        <member name="P:Common.Logging.LogSetting.Properties">
+            <summary>
+            Additional user supplied properties that are passed to the <see cref="P:Common.Logging.LogSetting.FactoryAdapterType"/>'s constructor.
+            </summary>
+        </member>
+    </members>
+</doc>

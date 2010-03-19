@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gizmox.WebGUI.Forms.Extended</name>
+    </assembly>
+    <members>
+        <member name="T:Gizmox.WebGUI.Forms.WatermarkTextBox">
+            <summary>
+            Summary description for WatermarkTextBox
+            </summary>
+        </member>
+        <member name="T:Gizmox.WebGUI.Forms.Editors.FCKEditor">
+            <summary>
+            Summary description for FCKEditor
+            </summary>
+        </member>
+        <member name="F:Gizmox.WebGUI.Forms.Editors.FCKEditor.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Gizmox.WebGUI.Forms.Editors.FCKEditor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gizmox.WebGUI.Forms.Editors.FCKEditor"/> class.
+            </summary>
+        </member>
+        <member name="M:Gizmox.WebGUI.Forms.Editors.FCKEditor.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Gizmox.WebGUI.Forms.Editors.FCKEditor.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:Gizmox.WebGUI.Forms.Editors.FCKEditor.ValueChange">
+            <summary>
+            Occurs when the Value property changes.  
+            </summary>
+        </member>
+        <member name="E:Gizmox.WebGUI.Forms.Editors.FCKEditor.ValueChangeQueued">
+            <summary>
+            Occurs when the Value property changes (Queued).  
+            </summary>
+        </member>
+        <member name="P:Gizmox.WebGUI.Forms.Editors.FCKEditor.BasePath">
+            <summary>
+            <p>
+            	Sets or gets the virtual path to the editor's directory. It is
+            	relative to the current page.
+            </p>
+            <p>
+            	The default value is "/FCKeditor/".
+            </p>
+            <p>
+            	The base path can be also set in the Web.config file using the 
+            	appSettings section. Just set the "FCKeditor:BasePath" for that. 
+            	For example:
+            	<code>
+            	&lt;configuration&gt;
+            		&lt;appSettings&gt;
+            			&lt;add key="FCKeditor:BasePath" value="/scripts/FCKeditor/" /&gt;
+            		&lt;/appSettings&gt;
+            	&lt;/configuration&gt;
+            	</code>
+            </p>
+            </summary>
+        </member>
+        <member name="T:Gizmox.WebGUI.Forms.SurfacePanel">
+            <summary>
+            Summary description for SurfacePanel
+            </summary>
+        </member>
+        <member name="T:Gizmox.WebGUI.Forms.WorkspaceTabs">
+            <summary>
+            Manages a related set of tab pages.
+            </summary>
+        </member>
+        <member name="M:Gizmox.WebGUI.Forms.WorkspaceTabs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gizmox.WebGUI.Forms.WorkspaceTabs"></see> class.
+            </summary>
+        </member>
+        <member name="M:Gizmox.WebGUI.Forms.WorkspaceTabs.CreateTabPageCollection">
+            <summary>
+            Creates the tab page collection.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Gizmox.WebGUI.Forms.WorkspaceTabs.ClientUpdateHandler">
+            <summary>
+            Gets or sets the client update handler.
+            </summary>
+            <value>The client update handler.</value>
+        </member>
+        <member name="P:Gizmox.WebGUI.Forms.WorkspaceTabs.TabPages">
+            <summary>
+            Gets the collection of tab pages in this tab control.
+            </summary>
+            <returns>A <see cref="T:Gizmox.WebGUI.Forms.TabPageCollection"></see> that contains the <see cref="T:Gizmox.WebGUI.Forms.TabPage"></see> objects in this <see cref="T:Gizmox.WebGUI.Forms.TabControl"></see>.</returns>
+        </member>
+        <member name="T:Gizmox.WebGUI.Forms.WorkspaceTab">
+            <summary>
+            Represents a single tab page in a <see cref="T:Gizmox.WebGUI.Forms.WorkspaceTabs"></see>.
+            </summary>
+        </member>
+        <member name="M:Gizmox.WebGUI.Forms.WorkspaceTab.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gizmox.WebGUI.Forms.WorkspaceTab"></see> class.
+            </summary>
+        </member>
+        <member name="M:Gizmox.WebGUI.Forms.WorkspaceTab.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gizmox.WebGUI.Forms.WorkspaceTab"></see> class and specifies the text for the tab.
+            </summary>
+            <param name="strText">The text for the tab. </param>
+        </member>
+        <member name="T:Gizmox.WebGUI.Forms.WorkspaceTabsCollection">
+            <summary>
+            Tab pages collection class
+            </summary>
+        </member>
+        <member name="M:Gizmox.WebGUI.Forms.WorkspaceTabsCollection.#ctor(Gizmox.WebGUI.Forms.TabControl)">
+            <summary>
+            Creates a new <see cref="T:Gizmox.WebGUI.Forms.TabPageCollection"/> instance.
+            </summary>
+        </member>
+        <member name="M:Gizmox.WebGUI.Forms.WorkspaceTabsCollection.Add(Gizmox.WebGUI.Forms.TabPage)">
+            <summary>
+            Adds the specified tab page.
+            </summary>
+            <param name="objTabPage">tab page.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gizmox.WebGUI.Forms.WorkspaceTabsCollection.Remove(Gizmox.WebGUI.Forms.TabPage)">
+            <summary>
+            Removes the specified tab page.
+            </summary>
+            <param name="objTabPage">tab page.</param>
+        </member>
+        <member name="P:Gizmox.WebGUI.Forms.WorkspaceTabsCollection.Item(System.Int32)">
+            <summary>
+            Gets the <see cref="T:Gizmox.WebGUI.Forms.TabPage"/> with the specified int index.
+            </summary>
+            <value></value>
+        </member>
+    </members>
+</doc>

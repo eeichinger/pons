@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Spring.Config</name>
+    </assembly>
+    <members>
+        <member name="T:Spring.Config.Advice.SpringObjectMethodInterceptor">
+            <summary>
+            Intercepts calls to methods within the configuration object
+            </summary>
+        </member>
+        <member name="T:Spring.Config.Attributes.AutoWiredAttribute">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:Spring.Config.Attributes.ConfigurationAttribute.Names">
+            <summary>
+            Gets or sets the configuration names. Allow different variants, such as test, 
+            production. Default will always match.
+            </summary>
+            <value>The names.</value>
+        </member>
+        <member name="P:Spring.Config.Attributes.ConfigurationAttribute.EveryVirtualIsObject">
+            <summary>
+            Set 'true' to avoids the need for specifying <see cref="T:Spring.Config.Attributes.DefinitionAttribute"/>
+            on every method. By default every virtual 
+            </summary>
+        </member>
+        <member name="T:Spring.Config.Attributes.ExpressionAttribute">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Spring.Config.Attributes.ExternalValueAttribute">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Spring.Config.Attributes.NoObjectAttribute">
+            <summary>
+            When <see cref="P:Spring.Config.Attributes.ConfigurationAttribute.EveryVirtualIsObject"/> is <c>true</c>,
+            place this attribute on any virtual method that is not to be treated as
+            an object definition.
+            </summary>
+        </member>
+        <member name="M:Spring.Config.ConfigurationContext.FromConfigurationAssembly``1">
+            <summary>
+            Searches for all [Configuration] types in the assembly containing <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">a type contained in the assembly to be scanned</typeparam>
+        </member>
+        <member name="M:Spring.Config.ILoggingConfigurer.SetLogger(Common.Logging.ILog)">
+            <summary>
+            Must be called first
+            </summary>
+            <param name="log"></param>
+        </member>
+        <member name="M:Spring.Config.LoggingConfigurer.SetLogger(Common.Logging.ILog)">
+            <summary>
+            Usually only for testing. This must be the first method called
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="T:Spring.Config.TypeNamingConvention">
+            <summary>
+            </summary>
+            <author>Erich Eichinger</author>
+        </member>
+        <member name="T:Spring.Context.Generic.ServiceLocator">
+            <summary>
+            Minimal service locator so configuration objects can get references to other objects defined in the 
+            container.
+            </summary>
+        </member>
+        <member name="M:Spring.Context.Generic.ServiceLocator.DoGetAllInstances(System.Type)">
+            <summary>
+            Resolves service instances by type.
+            </summary>
+            <param name="serviceType">Type of service requested.</param>
+            <returns>
+            Sequence of service instance objects matching the <paramref name="serviceType"/>.
+            </returns>
+        </member>
+        <member name="T:Spring.Config.Attributes.DefinitionAttribute">
+            <summary>
+            Attribute to be applied to methods that create objects in a Spring context.
+            </summary>
+            <remarks>
+            The name of the object is the method name. (It is also possible to specify
+            aliases using the aliases array on this annotation.)
+            </remarks>
+        </member>
+        <member name="T:Spring.Objects.Factory.Attributes.AutowireObjectPostProcessor">
+            <summary>
+            </summary>
+            <author>Erich Eichinger</author>
+        </member>
+        <member name="T:Spring.Config.Naming.IObjectNamingStrategy">
+             <summary>
+             Strategy interface for constructing an object name from the class method.
+             </summary>
+             <remarks>
+            
+             </remarks>
+             <author>Mark Pollack</author>
+        </member>
+    </members>
+</doc>

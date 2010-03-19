@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pons", "Pons\Pons.csproj", "{50B8C238-CE68-4605-949D-425F8F5DFAF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pons.Tests.Integration", "Pons.Tests.Integration\Pons.Tests.Integration.csproj", "{EB5E223A-D817-4A26-943D-7BB4BC47E31C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50B8C238-CE68-4605-949D-425F8F5DFAF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B8C238-CE68-4605-949D-425F8F5DFAF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B8C238-CE68-4605-949D-425F8F5DFAF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B8C238-CE68-4605-949D-425F8F5DFAF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB5E223A-D817-4A26-943D-7BB4BC47E31C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB5E223A-D817-4A26-943D-7BB4BC47E31C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB5E223A-D817-4A26-943D-7BB4BC47E31C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB5E223A-D817-4A26-943D-7BB4BC47E31C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

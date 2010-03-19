@@ -1,0 +1,6 @@
+*.suo
+*.resharper
+*.cache
+obj
+bin
+build
