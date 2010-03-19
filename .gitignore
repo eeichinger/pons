@@ -1,6 +1,7 @@
 *.suo
 *.resharper
 *.cache
+*.user
 obj
 bin
 build

@@ -81,39 +81,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Testing\Infrastructure\AbstractCustomDependencyResolverPostProcessor.cs" />
-    <Compile Include="Testing\Services\ApplicationContextService.cs" />
-    <Compile Include="Testing\Services\IServiceFactory.cs" />
-    <Compile Include="Testing\Services\ISeleniumSession.cs" />
-    <Compile Include="Testing\Services\PlatformTransactionService.cs" />
-    <Compile Include="Testing\Services\SeleniumSessionService.cs" />
-    <Compile Include="Testing\SpecificationWithServices.cs" />
-    <Compile Include="Testing\AbstractTest.cs" />
-    <Compile Include="Testing\AbstractTestFixture.cs" />
-    <Compile Include="Testing\MsSql\DatabaseFromBackup.cs" />
-    <Compile Include="Testing\Services\DatabaseService.cs" />
-    <Compile Include="Testing\Support\DisposableAdapter.cs" />
-    <Compile Include="Testing\Moq\MoqAutoMockingApplicationContext.cs" />
-    <Compile Include="Testing\Moq\MoqAutoMockingObjectFactory.cs" />
-    <Compile Include="Testing\Moq\MoqAutoMockingPostProcessor.cs" />
-    <Compile Include="Testing\MsSql\DatabaseInstaller.cs" />
-    <Compile Include="Testing\Infrastructure\Network.cs" />
-    <Compile Include="Testing\Services\SeleniumServerService.cs" />
-    <Compile Include="Testing\Specification.cs" />
-    <Compile Include="Testing\Services\SqlClientDatabaseService.cs" />
-    <Compile Include="Testing\MsSql\SqlClientDatabaseHelper.cs" />
-    <Compile Include="Testing\Support\TestResourceLoader.cs" />
-    <Compile Include="Testing\Support\Ensure.cs" />
-    <Compile Include="Testing\Services\WebServerService.cs" />
+    <Compile Include="Infrastructure\AbstractCustomDependencyResolverPostProcessor.cs" />
+    <Compile Include="Services\ApplicationContextService.cs" />
+    <Compile Include="Services\IServiceFactory.cs" />
+    <Compile Include="Services\ISeleniumSession.cs" />
+    <Compile Include="Services\PlatformTransactionService.cs" />
+    <Compile Include="Services\SeleniumSessionService.cs" />
+    <Compile Include="SpecificationWithServices.cs" />
+    <Compile Include="AbstractTest.cs" />
+    <Compile Include="AbstractTestFixture.cs" />
+    <Compile Include="MsSql\DatabaseFromBackup.cs" />
+    <Compile Include="Services\DatabaseService.cs" />
+    <Compile Include="Support\DisposableAdapter.cs" />
+    <Compile Include="Moq\MoqAutoMockingApplicationContext.cs" />
+    <Compile Include="Moq\MoqAutoMockingObjectFactory.cs" />
+    <Compile Include="Moq\MoqAutoMockingPostProcessor.cs" />
+    <Compile Include="MsSql\DatabaseInstaller.cs" />
+    <Compile Include="Infrastructure\Network.cs" />
+    <Compile Include="Services\SeleniumServerService.cs" />
+    <Compile Include="Specification.cs" />
+    <Compile Include="Services\SqlClientDatabaseService.cs" />
+    <Compile Include="MsSql\SqlClientDatabaseHelper.cs" />
+    <Compile Include="Support\TestResourceLoader.cs" />
+    <Compile Include="Support\Ensure.cs" />
+    <Compile Include="Services\WebServerService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Testing\MsSql\DropDatabase.sql" />
+    <EmbeddedResource Include="MsSql\DropDatabase.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Testing\MsSql\RestoreDatabase.sql" />
+    <EmbeddedResource Include="MsSql\RestoreDatabase.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Testing\Services\selenium-server.jar" />
+    <EmbeddedResource Include="Services\selenium-server.jar" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

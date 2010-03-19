@@ -79,13 +79,13 @@
     <Compile Include="TestData\TestWeb\Test\DisplayInput.aspx.designer.cs">
       <DependentUpon>DisplayInput.aspx.cs</DependentUpon>
     </Compile>
-    <Compile Include="Testing\AbstractTestFixtureTests.cs" />
-    <Compile Include="Testing\AbstractTestTests.cs" />
-    <Compile Include="Testing\DatabaseTestsBase.cs" />
-    <Compile Include="Testing\MoreDatabaseTests.cs" />
-    <Compile Include="Testing\DatabaseTests.cs" />
-    <Compile Include="Testing\TestApplicationContext.cs" />
-    <Compile Include="Testing\WebTests.cs" />
+    <Compile Include="AbstractTestFixtureTests.cs" />
+    <Compile Include="AbstractTestTests.cs" />
+    <Compile Include="DatabaseTestsBase.cs" />
+    <Compile Include="MoreDatabaseTests.cs" />
+    <Compile Include="DatabaseTests.cs" />
+    <Compile Include="TestApplicationContext.cs" />
+    <Compile Include="WebTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pons\Pons.csproj">
@@ -105,7 +105,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="TestData\TestWeb\Web.config" />
-    <EmbeddedResource Include="Testing\Sql\create_tables.sql" />
+    <EmbeddedResource Include="Sql\create_tables.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
