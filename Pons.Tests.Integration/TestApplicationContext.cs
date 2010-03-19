@@ -29,6 +29,10 @@ namespace Pons
             odb = ObjectDefinitionBuilder.GenericObjectDefinition(typeof(AdoPlatformTransactionManager));
             odb.AddConstructorArgReference("DbProvider");
             appCtx.ObjectFactory.RegisterObjectDefinition("TransactionManager", odb.ObjectDefinition);
+
+            odb = ObjectDefinitionBuilder.GenericObjectDefinition(typeof(AdoTemplate));
+            odb.AddConstructorArgReference("DbProvider");
+            appCtx.ObjectFactory.RegisterObjectDefinition("AdoTemplate", odb.ObjectDefinition);
         }
     }
 }

@@ -9,10 +9,10 @@ namespace Pons
         }
 
         [Given]
-        protected abstract void Given();
+        public abstract void Given();
 
         [When]
-        protected abstract void When();
+        public abstract void When();
 
         protected override void OnTearDown()
         {

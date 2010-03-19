@@ -15,10 +15,10 @@ namespace Pons
         }
 
         [Given]
-        protected abstract void Given();
+        public abstract void Given();
 
         [When]
-        protected abstract void When();
+        public abstract void When();
 
         [TearDown]
         public void TearDown()
@@ -31,11 +31,14 @@ namespace Pons
 
         public static void SetupGiven(object specification)
         {
-            var givens = from m in specification.GetType().GetMethods()
+            var methods = specification.GetType().GetMethods();
+            var givens = from m in methods
                          where m.IsDefined(typeof (GivenAttribute), true)
                          orderby ((GivenAttribute) Attribute.GetCustomAttribute(m, typeof (GivenAttribute))).Priority descending
                          select (Action) Delegate.CreateDelegate(typeof (Action), specification, m);
-            givens.All(m=>{ m(); return true; });
+            givens.All(m => { m(); return true; });
+//            var list = givens.ToList();
+//            list.ForEach(m=>m());
         }
 
         public static void SetupWhen(object specification)

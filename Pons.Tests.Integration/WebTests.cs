@@ -26,11 +26,6 @@ namespace Pons
             }
         }
 
-//        public WebServerService WebServer
-//        {
-//            get { return Get<WebServerService>(true); }
-//        }
-
         [Test]
         public void FilloutForm()
         {

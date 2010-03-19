@@ -69,6 +69,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecificationTestExample.cs" />
+    <Compile Include="TestData\TestWeb\SpecificationTestExample\ReadData.aspx.cs">
+      <DependentUpon>ReadData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestData\TestWeb\SpecificationTestExample\ReadData.aspx.designer.cs">
+      <DependentUpon>ReadData.aspx.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestData\TestWeb\Test\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -82,14 +90,14 @@
     </Compile>
     <Compile Include="AbstractTestFixtureTests.cs" />
     <Compile Include="AbstractTestTests.cs" />
-    <Compile Include="DatabaseTestsBase.cs" />
-    <Compile Include="MoreDatabaseTests.cs" />
-    <Compile Include="DatabaseTests.cs" />
+    <Compile Include="DatabaseTestsWithinTestTransactions.cs" />
+    <Compile Include="DatabaseTestsWithAutomaticDatabaseRecreate.cs" />
     <Compile Include="TestApplicationContext.cs" />
     <Compile Include="WebTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TestData\TestWeb\Global.asax" />
+    <Content Include="TestData\TestWeb\SpecificationTestExample\ReadData.aspx" />
     <Content Include="TestData\TestWeb\Test\Default.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

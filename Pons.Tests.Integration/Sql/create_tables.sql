@@ -4,7 +4,7 @@ go
 
 CREATE TABLE TestTable
 (
-    A int NOT NULL,
+    A int PRIMARY KEY NOT NULL,
     B nvarchar(255) NOT NULL
 )
 GO
