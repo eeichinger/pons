@@ -20,8 +20,16 @@ namespace Pons
 
         public ISeleniumSession Selenium
         {
-            get { return Get<ISeleniumSession>(true); }
+            get
+            {
+                return Get<ISeleniumSession>(true);
+            }
         }
+
+//        public WebServerService WebServer
+//        {
+//            get { return Get<WebServerService>(true); }
+//        }
 
         [Test]
         public void FilloutForm()

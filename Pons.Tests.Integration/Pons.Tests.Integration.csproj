@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -88,12 +89,6 @@
     <Compile Include="WebTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pons\Pons.csproj">
-      <Project>{50B8C238-CE68-4605-949D-425F8F5DFAF2}</Project>
-      <Name>Viz.Testing</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="TestData\TestWeb\Global.asax" />
     <Content Include="TestData\TestWeb\Test\Default.aspx">
       <SubType>ASPXCodeBehind</SubType>
@@ -106,6 +101,12 @@
     <None Include="App.config" />
     <None Include="TestData\TestWeb\Web.config" />
     <EmbeddedResource Include="Sql\create_tables.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pons\Pons.csproj">
+      <Project>{50B8C238-CE68-4605-949D-425F8F5DFAF2}</Project>
+      <Name>Pons</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

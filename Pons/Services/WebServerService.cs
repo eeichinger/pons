@@ -57,7 +57,7 @@ namespace Pons.Services
             get
             {
                 int webPort = Port;
-                IPAddress ipAddr = Network.GetNonLocalIPv4Address();
+                IPAddress ipAddr = IPAddress.Loopback; // Network.GetNonLocalIPv4Address();                 
                 return "http://" + ipAddr + ":" + webPort;                
             }
         }

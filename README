@@ -2,5 +2,10 @@
 
 *) Running the unit tests
 
-To make the unit tests pass you need to have an instance of MSSQL running. 
+To make the unit tests pass you need to have 
+
+- an instance of MSSQL running.
+- ASP.NET Development Webserver installed (comes with VS 2008)
+
 You might need to adjust the sql connectionstring in Pons.Tests.Integration/App.config
+
